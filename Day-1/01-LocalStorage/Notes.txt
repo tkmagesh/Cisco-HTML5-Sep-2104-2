@@ -1,0 +1,14 @@
+Local Storage
+    window.localStorage (objec)
+
+key/value pair store
+    key & value should be strings
+    
+window.localStorage
+    - setItem(key,value)
+    - getItem(key)
+    - removeItem(key)
+    - length
+    - key(index)
+    - clear()
+    
