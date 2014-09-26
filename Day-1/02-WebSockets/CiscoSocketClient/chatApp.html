@@ -7,12 +7,14 @@
         var ws = new WebSocket("ws://localhost:9090")
         ws.addEventListener("message",onMessageReceived);
         function onMessageReceived(msgEvt){
-            document.getElementById("divMessages").innerHTML += msg + "<br/>"
+            document.getElementById("divMessages").innerHTML += msgEvt.data + "<br/>"
         }
-        document.getElementById("btnSend").addEventListener("click", onBtnSendClick);
+        window.addEventListener("DOMContentLoaded", function(){
+            document.getElementById("btnSend").addEventListener("click", onBtnSendClick);
+        });
         function onBtnSendClick(){
             var msg = document.getElementById("txtMessage").value;
-            ws.sendText(msg);
+            ws.send(msg);
         }
     </script>
 </head>
