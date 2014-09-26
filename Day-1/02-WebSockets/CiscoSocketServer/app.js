@@ -3,11 +3,9 @@ var server = nodeJsWebSocket.createServer(onConnectionReceived);
 
 function onConnectionReceived(connection){
     console.log("A new connection is established");
-    setTimeout(function(){
-        connection.sendText(new Date().toDateString());
-    },10000);
     connection.on("text", function(msg){
-       console.log("Msg - [" + msg + "] received from client");
+        for(var i=0;i<server.connections.length;i++)
+            server.connections[i].sendText(msg);
     });
 }
 server.listen(9090);
