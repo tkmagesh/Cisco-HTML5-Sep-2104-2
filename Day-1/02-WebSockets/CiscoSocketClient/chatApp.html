@@ -9,9 +9,14 @@
         function onMessageReceived(msgEvt){
             document.getElementById("divMessages").innerHTML += msgEvt.data + "<br/>"
         }
-        window.addEventListener("DOMContentLoaded", function(){
+
+
+        window.addEventListener("DOMContentLoaded", init);
+
+        function init(){
             document.getElementById("btnSend").addEventListener("click", onBtnSendClick);
-        });
+        }
+
         function onBtnSendClick(){
             var msg = document.getElementById("txtMessage").value;
             ws.send(msg);
